@@ -12,6 +12,15 @@ describe("Gilded Rose", function() {
     expect(items[2].quality).toBe(0)
 
   })
+
+  it("quality of an item never goes over 50", () => {
+    const gildedRose = new Shop([new Item("Backstage passes to a TAFKAL80ETC concert", 17, 45), new Item("Aged Brie", 13, 40)])
+    for (let i = 0; i < 10; i++) {
+      items = gildedRose.updateQuality()
+    }
+    expect(items[0].quality).toBe(50)
+    expect(items[0].quality).toBe(50)
+  })
  
   it("NEVER depreciates the quality/sellIn value of Sulfurus, Hand of Ragnaros", () => {
     const gildedRose = new Shop([new Item("Sulfuras, Hand of Ragnaros", 0, 80)])

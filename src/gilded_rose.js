@@ -26,10 +26,12 @@ class Shop {
   }
 
   isAgedBrie(item) {
-    if (item.sellIn > 0) {
-      item.quality += 1
-    } else {
-      item.quality += 2
+    if(item.quality < 50) {
+      if (item.sellIn > 0) {
+        item.quality += 1
+      } else {
+        item.quality += 2
+      }
     }
     item.sellIn -= 1
   }
