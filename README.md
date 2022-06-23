@@ -34,5 +34,9 @@ npm run test:coverage
 ## My Approach
 
 - First I familiarised myself with the README which gave some fundamental aspects of how the code works
-- THis wasn't completely enlightening so I then set about to loading the 'texttest_ficxture.js' and then called `gildedRose.updateQuality()` and took note of the returns and how the items changed.
+
+- This wasn't completely enlightening so I then set about to loading the 'texttest_ficxture.js' and then called `gildedRose.updateQuality()` and took note of the returns and how the items changed.
+
 - Before considering implementing Conjured items, I knew I would need to buold up an entire test suite of everything I observed of the existing code logic. Then I can begin to refactor and implement.
+
+- A test suite enabled some refactoring into something less nonsensical. Any check for 'Sulfuras' is now done away with, apart from one check in the isCommonItem() function. Otherwise it doesn't require its own function.
