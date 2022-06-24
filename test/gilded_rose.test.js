@@ -70,6 +70,7 @@ describe("Gilded Rose", function() {
   it("Any COMMON item goes down in quality by 1 every update", () => { //COMMON not Brie, Sulfuras, BACKSTAGE, or Conjured
     const gildedRose = new Shop([new Item("+5 Dexterity Vest", 3, 6), new Item("Elixir of Mongoose", 3, 6)])
     const items = gildedRose.updateQuality();
+    
     expect(items[0].quality).toBe(5)
     expect(items[1].quality).toBe(5)
   })

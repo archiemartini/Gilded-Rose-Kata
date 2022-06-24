@@ -14,61 +14,122 @@ class Shop {
     for (let i = 0; i < this.items.length; i++) {
 
       if (this.items[i].name === 'Aged Brie') {
-        this.isAgedBrie(this.items[i])
+        this.items[i] = this.isAgedBrie(this.items[i])
       }  else if (this.items[i].name === 'Backstage passes to a TAFKAL80ETC concert') {
-        this.isBackstagePass(this.items[i])
+        this.items[i] = this.isBackstagePass(this.items[i])
+      } else  if (this.items[i].name === 'Sulfuras, Hand of Ragnaros') {
+        this.isSulfuras(this.items[i])
       } else {
-        this.isCommonItem(this.items[i])
+        this.items[i] = this.isCommonItem(this.items[i])
       }
-      
     }
       return this.items;
   }
 
   isAgedBrie(item) {
-    if(item.quality < 50) {
-      if (item.sellIn > 0) {
-        item.quality += 1
-      } else {
-        item.quality += 2
-      }
-    }
-    item.sellIn -= 1
+    let newItem = new AgedBrieItem(item.name, item.quality, item.sellIn)
+    newItem.tick()
+    return newItem
   }
 
   isBackstagePass(item) {
-    if (item.quality < 50) {
-      if (item.sellIn <= 10 && item.sellIn > 5) {
-        item.quality += 2
-      } else if (item.sellIn <= 5 && item.sellIn > 0) {
-        item.quality += 3
-      } else {
-        item.quality += 1
-      }
-    }
-    if (item.sellIn <= 0) {
-      item.quality = 0
-    }
-    item.sellIn -= 1
+    let newItem = new BackstageItem(item.name, item.quality, item.sellIn)
+    newItem.tick()
+    return newItem
+  }
+
+  isSulfuras(item) {
+    let newItem = new SulfurasItem(item.name, item.quality, item.sellIn)
+    newItem.tick()
+    return newItem
   }
 
   isCommonItem(item) {
-    if (item.name !== 'Sulfuras, Hand of Ragnaros') {
-      if (item.sellIn > 0) {
-        item.quality -= 1
-        item.sellIn -= 1
-      } else {
-        item.quality -= 2
-        item.sellIn -= 1
-      }
-    }
-    if (item.quality < 0) {
-      item.quality = 0
-    }
+    let newItem = new CommonItem(item.name, item.quality, item.sellIn)
+    newItem.tick()
+    return newItem
+
   }
   
 }
 
+class AgedBrieItem {
+  constructor (name, quality, sellIn) {
+    this.name = name
+    this.quality = quality
+    this.sellIn = sellIn
+  }
+
+  tick() {
+    if(this.quality < 50) {
+      if (this.sellIn > 0) {
+        this.quality += 1
+      } else {
+        this.quality += 2
+      }
+    }
+    this.sellIn -= 1
+  }
+}
+
+class BackstageItem {
+  constructor (name, quality, sellIn) {
+    this.name = name
+    this.quality = quality
+    this.sellIn = sellIn
+  }
+
+  tick() {
+    if (this.quality < 50) {
+      if (this.sellIn <= 10 && this.sellIn > 5) {
+        this.quality += 2
+      } else if (this.sellIn <= 5 && this.sellIn > 0) {
+        this.quality += 3
+      } else {
+        this.quality += 1
+      }
+    }
+    if (this.sellIn <= 0) {
+      this.quality = 0
+    }
+    this.sellIn -= 1
+  }
+}
+
+class CommonItem  {
+
+  constructor(name, quality, sellIn) {
+    this.name = name
+    this.quality = quality
+    this.sellIn = sellIn
+  } 
+
+  tick() {
+    if (this.sellIn > 0) {
+      this.quality -= 1
+      this.sellIn -= 1
+    } else {
+      this.quality -= 2
+      this.sellIn -= 1
+    }
+    if (this.quality < 0) {
+      this.quality = 0
+    }
+  }
+
+}
+
+class SulfurasItem {
+  constructor(name, quality, sellIn) {
+    this.name = name
+    this.quality = quality
+    this.sellIn = sellIn
+  } 
+
+  tick() {
+
+  }
+}
 
 
 module.exports = {

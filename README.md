@@ -35,8 +35,10 @@ npm run test:coverage
 
 - First I familiarised myself with the README which gave some fundamental aspects of how the code works
 
-- This wasn't completely enlightening so I then set about to loading the 'texttest_ficxture.js' and then called `gildedRose.updateQuality()` and took note of the returns and how the items changed.
+- This wasn't comprehensive so I then set about to loading the 'texttest_fixture.js' and then called `gildedRose.updateQuality()` and took note of the returns and how the items changed.
 
-- Before considering implementing Conjured items, I knew I would need to buold up an entire test suite of everything I observed of the existing code logic. Then I can begin to refactor and implement.
+- Before implementing Conjured items, I would need to build up an entire test suite of everything I observed of the existing code logic. Only then can I begin to refactor and implement.
 
-- A test suite enabled some refactoring into something less nonsensical. Any check for 'Sulfuras' is now done away with, apart from one check in the isCommonItem() function. Otherwise it doesn't require its own function.
+- A test suite enabled some refactoring out of that hideous 'if' statement. Now there is a simple if else statement iterating through and calling functions that hold the appropriate 'depreciation' logic
+
+- Now I can start looking at making subclasses, refactoring this is super easy. And by the way now I'm following [Sandi Metz's talk](https://www.youtube.com/watch?v=8bZh5LMaSmE&ab_channel=Confreaks) on this, she refactors in Ruby. Otherwise I would've just thrown in a isConjuredItem() function and had done with it.
