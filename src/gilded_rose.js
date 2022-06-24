@@ -6,7 +6,7 @@ class Item {
   }
 
   tick() {
-
+  
   }
 }
 
@@ -14,6 +14,7 @@ class Shop {
   constructor(items=[]){
     this.items = items;
   }
+
   updateQuality() {
     for (let i = 0; i < this.items.length; i++) {
       let name = this.items[i].name
@@ -36,7 +37,6 @@ class Shop {
     }
       return this.items;
   }
-  
 }
 
 class AgedBrieItem extends Item{
@@ -96,7 +96,6 @@ class CommonItem extends Item  {
       this.quality = 0
     }
   }
-
 }
 
 
