@@ -4,6 +4,10 @@ class Item {
     this.sellIn = sellIn;
     this.quality = quality;
   }
+
+  tick() {
+
+  }
 }
 
 class Shop {
@@ -12,18 +16,21 @@ class Shop {
   }
   updateQuality() {
     for (let i = 0; i < this.items.length; i++) {
+      let name = this.items[i].name
+      let quality = this.items[i].quality
+      let sellIn = this.items[i].sellIn
 
-      if (this.items[i].name === 'Aged Brie') {
-        this.items[i] = new AgedBrieItem(this.items[i].name, this.items[i].quality, this.items[i].sellIn)
+      if (name === 'Aged Brie') {
+        this.items[i] = new AgedBrieItem(name, sellIn, quality)
         this.items[i].tick()
-      }  else if (this.items[i].name === 'Backstage passes to a TAFKAL80ETC concert') {
-        this.items[i] = new BackstageItem(this.items[i].name, this.items[i].quality, this.items[i].sellIn)
+      }  else if (name === 'Backstage passes to a TAFKAL80ETC concert') {
+        this.items[i] = new BackstageItem(name, sellIn, quality)
         this.items[i].tick()
-      } else  if (this.items[i].name === 'Sulfuras, Hand of Ragnaros') {
-        this.items[i] = new SulfurasItem(this.items[i].name, this.items[i].quality, this.items[i].sellIn)
+      } else  if (name === 'Sulfuras, Hand of Ragnaros') {
+        this.items[i] = new Item(name, sellIn, quality)
         this.items[i].tick()
       } else {
-        this.items[i] = new CommonItem(this.items[i].name, this.items[i].quality, this.items[i].sellIn)
+        this.items[i] = new CommonItem(name, sellIn, quality)
         this.items[i].tick()
       }
     }
@@ -32,11 +39,9 @@ class Shop {
   
 }
 
-class AgedBrieItem {
-  constructor (name, quality, sellIn) {
-    this.name = name
-    this.quality = quality
-    this.sellIn = sellIn
+class AgedBrieItem extends Item{
+  constructor (name, sellIn, quality) {
+    super(name, sellIn, quality)
   }
 
   tick() {
@@ -51,11 +56,9 @@ class AgedBrieItem {
   }
 }
 
-class BackstageItem {
-  constructor (name, quality, sellIn) {
-    this.name = name
-    this.quality = quality
-    this.sellIn = sellIn
+class BackstageItem extends Item {
+  constructor (name, sellIn, quality) {
+    super(name, sellIn, quality)
   }
 
   tick() {
@@ -75,12 +78,10 @@ class BackstageItem {
   }
 }
 
-class CommonItem  {
+class CommonItem extends Item  {
 
-  constructor(name, quality, sellIn) {
-    this.name = name
-    this.quality = quality
-    this.sellIn = sellIn
+  constructor(name, sellIn, quality) {
+    super(name, sellIn, quality)
   } 
 
   tick() {
@@ -98,17 +99,7 @@ class CommonItem  {
 
 }
 
-class SulfurasItem {
-  constructor(name, quality, sellIn) {
-    this.name = name
-    this.quality = quality
-    this.sellIn = sellIn
-  } 
 
-  tick() {
-
-  }
-}
 
 
 module.exports = {
