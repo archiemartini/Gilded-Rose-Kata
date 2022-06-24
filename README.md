@@ -41,4 +41,8 @@ npm run test:coverage
 
 - A test suite enabled some refactoring out of that hideous 'if' statement. Now there is a simple if else statement iterating through and calling functions that hold the appropriate 'depreciation' logic
 
-- Now I can start looking at making subclasses, refactoring this is super easy. And by the way now I'm following [Sandi Metz's talk](https://www.youtube.com/watch?v=8bZh5LMaSmE&ab_channel=Confreaks) on this, she refactors in Ruby. Otherwise I would've just thrown in a isConjuredItem() function and had done with it.
+- Now I can start looking at making subclasses, refactoring this is nice and easy. And by the way now I'm following [Sandi Metz's talk](https://www.youtube.com/watch?v=8bZh5LMaSmE&ab_channel=Confreaks) on this, she refactors in Ruby. Otherwise I would've just thrown in a isConjuredItem() function and had done with it.
+
+- Now I can move the logic that was once in my functions striaght into the if else/iteration that is in updateQuality() - FUNCTIONS GONE
+
+- 

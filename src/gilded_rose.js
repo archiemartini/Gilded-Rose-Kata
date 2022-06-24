@@ -14,41 +14,20 @@ class Shop {
     for (let i = 0; i < this.items.length; i++) {
 
       if (this.items[i].name === 'Aged Brie') {
-        this.items[i] = this.isAgedBrie(this.items[i])
+        this.items[i] = new AgedBrieItem(this.items[i].name, this.items[i].quality, this.items[i].sellIn)
+        this.items[i].tick()
       }  else if (this.items[i].name === 'Backstage passes to a TAFKAL80ETC concert') {
-        this.items[i] = this.isBackstagePass(this.items[i])
+        this.items[i] = new BackstageItem(this.items[i].name, this.items[i].quality, this.items[i].sellIn)
+        this.items[i].tick()
       } else  if (this.items[i].name === 'Sulfuras, Hand of Ragnaros') {
-        this.isSulfuras(this.items[i])
+        this.items[i] = new SulfurasItem(this.items[i].name, this.items[i].quality, this.items[i].sellIn)
+        this.items[i].tick()
       } else {
-        this.items[i] = this.isCommonItem(this.items[i])
+        this.items[i] = new CommonItem(this.items[i].name, this.items[i].quality, this.items[i].sellIn)
+        this.items[i].tick()
       }
     }
       return this.items;
-  }
-
-  isAgedBrie(item) {
-    let newItem = new AgedBrieItem(item.name, item.quality, item.sellIn)
-    newItem.tick()
-    return newItem
-  }
-
-  isBackstagePass(item) {
-    let newItem = new BackstageItem(item.name, item.quality, item.sellIn)
-    newItem.tick()
-    return newItem
-  }
-
-  isSulfuras(item) {
-    let newItem = new SulfurasItem(item.name, item.quality, item.sellIn)
-    newItem.tick()
-    return newItem
-  }
-
-  isCommonItem(item) {
-    let newItem = new CommonItem(item.name, item.quality, item.sellIn)
-    newItem.tick()
-    return newItem
-
   }
   
 }
