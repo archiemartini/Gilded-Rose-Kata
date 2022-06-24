@@ -46,3 +46,5 @@ npm run test:coverage
 - Now I can move the logic that was once in my functions striaght into the if else/iteration that is in updateQuality() - FUNCTIONS GONE
 
 - Now I've extended all of the subclasses from Item, the Sulfuras Item class is now pointless. 
+
+- I can implement conjured simply enough by updating the updateQuality() else/if statement and then adding a subclass

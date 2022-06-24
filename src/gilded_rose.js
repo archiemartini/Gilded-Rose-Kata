@@ -30,6 +30,9 @@ class Shop {
       } else  if (name === 'Sulfuras, Hand of Ragnaros') {
         this.items[i] = new Item(name, sellIn, quality)
         this.items[i].tick()
+      } else if (name === 'Conjured Bastard of Healing') {
+        this.items[i] = new ConjuredItem(name, sellIn, quality)
+        this.items[i].tick()
       } else {
         this.items[i] = new CommonItem(name, sellIn, quality)
         this.items[i].tick()
@@ -87,16 +90,34 @@ class CommonItem extends Item  {
   tick() {
     if (this.sellIn > 0) {
       this.quality -= 1
-      this.sellIn -= 1
     } else {
       this.quality -= 2
-      this.sellIn -= 1
     }
     if (this.quality < 0) {
       this.quality = 0
     }
+    this.sellIn -= 1
   }
 }
+
+class ConjuredItem extends Item {
+  constructor(name, sellIn, quality) {
+    super(name, sellIn, quality)
+  }
+
+  tick() {
+    if (this.sellIn > 0) {
+      this.quality -= 2
+    } else {
+      this.quality -= 4
+    }
+    if (this.quality < 0) {
+      this.quality = 0
+    }
+    this.sellIn -= 1
+  }
+}
+
 
 
 

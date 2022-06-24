@@ -86,4 +86,24 @@ describe("Gilded Rose", function() {
     expect(items[0].quality).toBe(0) // quality of all items never goes below 0
     expect(items[0].sellIn).toBe(-2)
   })
+
+  it("Any CONJURED item's quality by 2 every tick", () => { //COMMON not Brie, Sulfuras, BACKSTAGE, or Conjured
+    const gildedRose = new Shop([new Item("Conjured Bastard of Healing", 3, 6)])
+    const items = gildedRose.updateQuality();
+    
+    expect(items[0].quality).toBe(4)
+    
+  })
+  it("Any CONJURED item's quality goes down by 4 once sellIn is zero or below", () => {
+    const gildedRose = new Shop([new Item("Conjured Bastard of Healing", 1, 8)])
+    items = gildedRose.updateQuality();
+    expect(items[0].quality).toBe(6)
+    expect(items[0].sellIn).toBe(0)
+    items = gildedRose.updateQuality();
+    expect(items[0].quality).toBe(2)
+    expect(items[0].sellIn).toBe(-1)
+    items = gildedRose.updateQuality()
+    expect(items[0].quality).toBe(0) // quality of all items never goes below 0
+    expect(items[0].sellIn).toBe(-2)
+  })
 });
