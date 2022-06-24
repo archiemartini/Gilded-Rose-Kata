@@ -2,7 +2,7 @@
 
 This is the Gilded Rose kata in JavaScript with Jest
 
-Set for my 10th week at Makers Academy. I really enjoyed this challenge, as it gave a realistic example of entering a legacy codebase that had been added onto repeatedly with no thought to proper OOE practice. I'd like to state I used [Sandi Metz's talk at the 2014 Rails conference](https://www.youtube.com/watch?v=8bZh5LMaSmE&ab_channel=Confreaks) as a companion piece to my process. Without giving me the answer directly, it taught me systematically the process with which to tackle real-life scenarios such as this.
+Set for my 10th week at Makers Academy. I really enjoyed this challenge, as it gave a realistic example of entering a legacy codebase that had been added onto repeatedly with no thought to proper OOE practice. I'd like to state I used [Sandi Metz's talk at the 2014 Rails conference](https://www.youtube.com/watch?v=8bZh5LMaSmE&ab_channel=Confreaks) as a companion piece to my process. There were some distinct differences between her code base and mine which left some things up to my own thinking. Without giving me the answer directly, Sandi taught me systematically the process and values with which to tackle real-life scenarios such as this. And for that, I am forever in her debt :'^)
 
 ## Getting started
 
