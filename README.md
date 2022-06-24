@@ -2,7 +2,7 @@
 
 This is the Gilded Rose kata in JavaScript with Jest
 
-Set for my 10th week at Makers Academy. 
+Set for my 10th week at Makers Academy. I really enjoyed this challenge, as it gave a realistic example of entering a legacy codebase that had been added onto repeatedly with no thought to proper OOE practice. I'd like to state I used [Sandi Metz's talk at the 2014 Rails conference](https://www.youtube.com/watch?v=8bZh5LMaSmE&ab_channel=Confreaks) as a companion piece to my process. Without giving me the answer directly, it taught me systematically the process with which to tackle real-life scenarios such as this.
 
 ## Getting started
 
@@ -45,6 +45,6 @@ npm run test:coverage
 
 - Now I can move the logic that was once in my functions striaght into the if else/iteration that is in updateQuality() - FUNCTIONS GONE
 
-- Now I've extended all of the subclasses from Item, the Sulfuras Item class is now pointless. 
+- Now I've extended all of the subclasses from Item, the Sulfuras Item class is now pointless. If sulfuras is recognised it's appointed class is the default item class.
 
-- I can implement conjured simply enough by updating the updateQuality() else/if statement and then adding a subclass
+- I can implement conjured simply enough by updating the updateQuality() else/if statement and then adding a subclass.
