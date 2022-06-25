@@ -49,4 +49,4 @@ npm run test:coverage
 
 - I can implement conjured simply enough by updating the updateQuality() else/if statement and then adding a subclass.
 
-![coverage]('./coverage.png')
+![coverage](./coverage.png)
