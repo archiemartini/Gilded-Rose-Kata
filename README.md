@@ -48,3 +48,5 @@ npm run test:coverage
 - Now I've extended all of the subclasses from Item, the Sulfuras Item class is now pointless. If sulfuras is recognised it's appointed class is the default item class.
 
 - I can implement conjured simply enough by updating the updateQuality() else/if statement and then adding a subclass.
+
+![coverage]('./coverage.png')
